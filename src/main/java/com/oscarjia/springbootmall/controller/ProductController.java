@@ -16,6 +16,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import java.util.List;
+import java.util.Map;
 
 @Validated
 @RestController
@@ -144,4 +145,5 @@ public class ProductController {
         // 2.商品本來就不存在
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
 }
