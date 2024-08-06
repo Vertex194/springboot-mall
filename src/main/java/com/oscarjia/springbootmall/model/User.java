@@ -1,12 +1,22 @@
 package com.oscarjia.springbootmall.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
 public class User {
 
     private Integer userId;
+
+    // 修改回傳json格式的Key值
+    // @JsonProperty("e_mail")
     private String email;
+
+    // 隱藏回傳值的json參數
+    @JsonIgnore
     private String password;
+
     private Date createdDate;
     private Date lastModifiedDate;
 
