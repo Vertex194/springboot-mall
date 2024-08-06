@@ -4,6 +4,7 @@ import com.oscarjia.springbootmall.dao.OrderDao;
 import com.oscarjia.springbootmall.dao.ProductDao;
 import com.oscarjia.springbootmall.dto.BuyItem;
 import com.oscarjia.springbootmall.dto.CreateOrderRequest;
+import com.oscarjia.springbootmall.model.Order;
 import com.oscarjia.springbootmall.model.OrderItem;
 import com.oscarjia.springbootmall.model.Product;
 import com.oscarjia.springbootmall.service.OrderService;
@@ -22,6 +23,17 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private ProductDao productDao;
+
+    @Override
+    public Order getOrderById(Integer orderId) {
+        Order order = orderDao.getOrderById(orderId);
+
+        List<OrderItem> orderItemList = orderDao.getOrderItemsByOrderId(orderId);
+
+        order.setOrderItemList(orderItemList);
+
+        return order;
+    }
 
     // 修改多個Table All or Never
     @Transactional
