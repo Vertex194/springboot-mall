@@ -5,6 +5,7 @@ import com.oscarjia.springbootmall.dao.ProductDao;
 import com.oscarjia.springbootmall.dao.UserDao;
 import com.oscarjia.springbootmall.dto.BuyItem;
 import com.oscarjia.springbootmall.dto.CreateOrderRequest;
+import com.oscarjia.springbootmall.dto.OrderQueryParams;
 import com.oscarjia.springbootmall.model.Order;
 import com.oscarjia.springbootmall.model.OrderItem;
 import com.oscarjia.springbootmall.model.Product;
@@ -36,6 +37,11 @@ public class OrderServiceImpl implements OrderService {
     private UserDao userDao;
 
     @Override
+    public Integer countOrder(OrderQueryParams orderQueryParams) {
+        return orderDao.countOrder(orderQueryParams);
+    }
+
+    @Override
     public Order getOrderById(Integer orderId) {
         Order order = orderDao.getOrderById(orderId);
 
@@ -44,6 +50,19 @@ public class OrderServiceImpl implements OrderService {
         order.setOrderItemList(orderItemList);
 
         return order;
+    }
+
+    @Override
+    public List<Order> getOrders(OrderQueryParams orderQueryParams) {
+        List<Order> orderList = orderDao.getOrders(orderQueryParams);
+
+        for(Order order : orderList){
+            List<OrderItem> orderItemList = orderDao.getOrderItemsByOrderId(order.getOrderId());
+
+            order.setOrderItemList(orderItemList);
+        }
+
+        return  orderList;
     }
 
     // 修改多個Table All or Never
