@@ -1,8 +1,11 @@
 package com.oscarjia.springbootmall.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.util.Date;
 import java.util.List;
 
+@Schema(description = "訂單主檔")
 public class Order {
     private Integer orderId;
     private Integer userId;

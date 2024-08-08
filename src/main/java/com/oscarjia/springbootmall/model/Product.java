@@ -1,8 +1,11 @@
 package com.oscarjia.springbootmall.model;
 
 import com.oscarjia.springbootmall.constant.ProductCategory;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.Date;
+
+@Schema(description = "商品")
 public class Product {
     private Integer productId;
     private String productName;

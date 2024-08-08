@@ -1,10 +1,11 @@
 package com.oscarjia.springbootmall.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.Date;
 
+@Schema(description = "使用者登入")
 public class User {
 
     private Integer userId;

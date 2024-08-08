@@ -1,5 +1,8 @@
 package com.oscarjia.springbootmall.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
+@Schema(description = "訂單明細")
 public class OrderItem {
     private Integer orderItemId;
     private Integer orderId;
