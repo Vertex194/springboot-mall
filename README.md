@@ -1,5 +1,7 @@
 電商網站
 
 透過線上課程一步步
-從不會Spring到可以寫出一個以RESTful為基礎的API
+從不會Spring到可以用Java寫出一個以RESTful為基礎搭配Spring Boot的API
 並透過API Test寫入到MySQL資料庫
+
+後續也利用函示庫的方法顯示API所有內容於Swagger
